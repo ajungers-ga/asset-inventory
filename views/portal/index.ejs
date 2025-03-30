@@ -1,0 +1,33 @@
+  <!-- purpose =  
+  shows a logged in users their full asset inventory, as well as an option to add a new asset -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Asset Inventory</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h1>Your Asset Inventory</h1>
+
+  <a href="/portal/new">Add New Asset</a> |
+  <a href="/auth/logout">Logout</a>
+
+  <ul>
+    <% assets.forEach(asset => { %>
+      <li>
+        <%= asset.name %> - <%= asset.category %> - <%= asset.condition %>
+        [<a href="/portal/<%= asset._id %>">View</a>]
+        [<a href="/portal/<%= asset._id %>/edit">Edit</a>]
+        <form action="/portal/<%= asset._id %>?_method=DELETE" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+</body>
+</html>

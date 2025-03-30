@@ -1,3 +1,7 @@
+// notes - im only adding major route groups like auth, assets, users. 
+// notes - also serving the homepage and global stuff i might add like contact 
+// notes - my middleware and listening port will also be found here
+
 // Load environment variables
 require('dotenv').config();
 
@@ -9,6 +13,11 @@ const methodOverride = require('method-override');
 const path = require('path');
 
 const app = express();
+
+// Import routes and middleware
+const assetRoutes = require('./routes/assetRoutes');
+const authRoutes = require('./routes/authRoutes');       // 
+const realAuth = require('./middleware/realAuth');       // middleware for protecting routes
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI);
@@ -26,7 +35,7 @@ app.use(methodOverride('_method'));
 
 app.use(
   session({
-    secret: 'supersecret', 
+    secret: 'supersecret',
     resave: false,
     saveUninitialized: false,
   })
@@ -34,11 +43,19 @@ app.use(
 
 // View engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); 
 
-// Routes
+// home page
 app.get('/', (req, res) => {
-  res.send('Welcome to Asset Inventory Manager!');
+  res.render('home');
 });
+
+// BELOW = using /auth prefix for signup, signin, signout routes
+app.use('/auth', authRoutes);
+
+// BELOW = any route starting with /portal should follow logic in assetsRoutes.js
+// Only accessible if realAuth passes
+app.use('/portal', realAuth, assetRoutes); 
 
 // Start server
 const PORT = 3008;

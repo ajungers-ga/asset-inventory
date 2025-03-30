@@ -1,0 +1,39 @@
+/* public/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  h1 {
+    color: #1a73e8;
+  }
+  
+  form {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  input, select {
+    margin-bottom: 1rem;
+    padding: 0.4rem;
+    width: 300px;
+    display: block;
+  }
+  
+  button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 0.6rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  a {
+    color: #1a73e8;
+    text-decoration: none;
+    margin-right: 1rem;
+  }
+  

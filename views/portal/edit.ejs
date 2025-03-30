@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Asset</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <h1>Edit Asset</h1>
+
+  <form action="/portal/<%= asset._id %>?_method=PUT" method="POST">
+    <label>Device:</label>
+    <input type="text" name="name" value="<%= asset.name %>" required><br>
+
+    <label>Model:</label>
+    <input type="text" name="category" value="<%= asset.category %>" required><br>
+
+    <label>Make:</label>
+    <input type="text" name="make" value="<%= asset.make %>"><br>
+
+    <label>Condition:</label>
+    <select name="condition">
+      <option value="New" <%= asset.condition === 'New' ? 'selected' : '' %>>New</option>
+      <option value="Used" <%= asset.condition === 'Used' ? 'selected' : '' %>>Used</option>
+      <option value="Refurbished" <%= asset.condition === 'Refurbished' ? 'selected' : '' %>>Refurbished</option>
+    </select><br>
+
+    <label>Asset Tag:</label>
+    <input type="text" name="assetTag" value="<%= asset.assetTag %>"><br>
+
+    <label>Manufactured Date:</label>
+    <input type="number" name="manufacturedDate" value="<%= asset.manufacturedDate ? asset.manufacturedDate.getFullYear() : '' %>" min="2001" max="2030"><br>
+
+    <button type="submit">Update Asset</button>
+  </form>
+
+  <a href="/portal">Back to Portal</a>
+
+</body>
+</html>
