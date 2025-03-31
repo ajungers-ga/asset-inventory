@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const assetController = require('../controllers/assetController');
 
-function realAuth(req, res, next) {
+function realAuth(req, res, next) { //needs work
   if (req.session && req.session.user) {
     return next();
   }
