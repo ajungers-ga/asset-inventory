@@ -1,33 +1,60 @@
-  <!-- purpose =  
-  shows a logged in users their full asset inventory, as well as an option to add a new asset -->
+<%- include('../partials/header') %>
 
+  <!-- BELOW = shows a logged in user's full asset inventory in a table layout -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Your Asset Inventory</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+  <h2>Your Asset Inventory</h2>
 
-  <h1>Your Asset Inventory</h1>
+  <!-- BELOW = table headers define each column of the asset display
+<table> = a tag for which my table contents go
+  <thread> = a tag for the table header. example: device, make, model, assettag 
+    <tr> = table row tag. creating a horizontal row for my table. 
+      <th> = table header cell. these are the labels for my columns. All of my <th> tags exist INSIDE my <tr> tags
+        <tbody> = table body. This is used to group the main content rows. Inside those row is the <td> tags
+          <td> = table data. this is the real data to be displayed inside the <tbody>
+-->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Device</th>
+          <th>Model</th>
+          <th>Asset Tag</th>
+          <th>Condition</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
 
-  <a href="/portal/new">Add New Asset</a> |
-  <a href="/auth/logout">Logout</a>
+      <!-- BELOW = looping through each asset and displaying it as a row in the table -->
+      <tbody>
+        <% assets.forEach(asset=> { %>
+          <tr>
+            <!-- BELOW = device name links to the asset's details page -->
+            <td><a href="/portal/<%= asset._id %>">
+                <%= asset.name %>
+              </a></td>
 
-  <ul>
-    <% assets.forEach(asset => { %>
-      <li>
-        <%= asset.name %> - <%= asset.category %> - <%= asset.condition %>
-        [<a href="/portal/<%= asset._id %>">View</a>]
-        [<a href="/portal/<%= asset._id %>/edit">Edit</a>]
-        <form action="/portal/<%= asset._id %>?_method=DELETE" method="POST" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    <% }) %>
-  </ul>
+            <!-- BELOW = displaying category, asset tag, and condition -->
+            <td>
+              <%= asset.category %>
+            </td>
+            <td>
+              <%= asset.assetTag %>
+            </td>
+            <td>
+              <%= asset.condition %>
+            </td>
 
-</body>
-</html>
+            <!-- BELOW = Edit and Delete actions for each asset -->
+            <td>
+              <a href="/portal/<%= asset._id %>/edit">Edit</a>
+              <form action="/portal/<%= asset._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <%- include('../partials/footer') %>

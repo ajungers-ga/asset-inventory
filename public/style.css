@@ -1,39 +1,66 @@
-/* public/style.css */
-
+/* BELOW = basic page setup */
 body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  h1 {
-    color: #1a73e8;
-  }
-  
-  form {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  input, select {
-    margin-bottom: 1rem;
-    padding: 0.4rem;
-    width: 300px;
-    display: block;
-  }
-  
-  button {
-    background-color: #1a73e8;
-    color: white;
-    padding: 0.6rem 1rem;
-    border: none;
-    cursor: pointer;
-  }
-  
-  a {
-    color: #1a73e8;
-    text-decoration: none;
-    margin-right: 1rem;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* BELOW = site header and navigation */
+header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+/* BELOW = center the table inside a clean container */
+.table-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+}
+
+/* BELOW = simple table layout */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* BELOW = space for inputs and buttons */
+input, select, button {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* BELOW = simple button style */
+button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* BELOW = footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+  font-size: 0.9rem;
+}

@@ -1,46 +1,30 @@
-<!-- 
-  Purpose: Edit an existing asset.
--->
+<%- include('../partials/header') %>
 
-<!DOCTYPE html>
-<html lang="en">
+<h2>Edit <%= asset.name %></h2>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Edit <%= asset.name %>
-  </title>
-  <link rel="stylesheet" href="/style.css">
-</head>
+<form action="/portal/<%= asset._id %>?_method=PUT" method="POST">
+  <label for="name">Device Label</label>
+  <input type="text" id="name" name="name" value="<%= asset.name %>" required>
 
-<body>
+  <label for="category">Model</label>
+  <input type="text" id="category" name="category" value="<%= asset.category %>" required>
 
-  <h1>Edit <%= asset.name %>
-  </h1>
+  <label for="make">Make Label</label>
+  <input type="text" id="make" name="make" value="<%= asset.make %>" required>
 
-  <form action="/portal/<%= asset._id %>?_method=PUT" method="POST">
-    <label for="name">Device Label</label>
-    <input type="text" id="name" name="name" value="<%= asset.name %>" required>
+  <label for="condition">Condition</label>
+  <input type="text" id="condition" name="condition" value="<%= asset.condition %>" required>
 
-    <label for="category">Model</label>
-    <input type="text" id="category" name="category" value="<%= asset.category %>" required>
+  <label for="assetTag">Asset Tag</label>
+  <input type="text" id="assetTag" name="assetTag" value="<%= asset.assetTag %>" required>
 
-    <label for="make">Make Label</label>
-    <input type="text" id="make" name="make" value="<%= asset.make %>" required>
+  <label for="manufacturedYear">Manufactured Year</label>
+  <input type="number" id="manufacturedYear" name="manufacturedYear" min="2001" max="2030"
+    value="<%= asset.manufacturedDate?.getFullYear() %>" required>
 
-    <label for="condition">Condition</label>
-    <input type="text" id="condition" name="condition" value="<%= asset.condition %>" required>
+  <button type="submit">Update Asset</button>
+</form>
 
-    <label for="assetTag">Asset Tag</label>
-    <input type="text" id="assetTag" name="assetTag" value="<%= asset.assetTag %>" required>
+<a href="/portal">Cancel</a>
 
-    <label for="manufacturedYear">Manufactured Year</label>
-    <input type="number" id="manufacturedYear" name="manufacturedYear" min="2001" max="2030"
-      value="<%= asset.manufacturedDate?.getFullYear() %>" required>
-    <button type="submit">Update Asset</button>
-  </form>
-
-  <a href="/portal">Cancel</a>
-
-</body>
-
-</html>
+<%- include('../partials/footer') %>

@@ -1,41 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Add New Asset</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+<%- include('../partials/header') %>
 
-  <h1>Add New Asset</h1>
+<h2>Add New Asset</h2>
 
-  <form action="/portal" method="POST">
-    <label>Device:</label>
-    <input type="text" name="name" required><br>
+<form action="/portal" method="POST">
+  <label>Device:</label>
+  <input type="text" name="name" required><br>
 
-    <label>Model:</label>
-    <input type="text" name="category" required><br>
+  <label>Model:</label>
+  <input type="text" name="category" required><br>
 
-    <label>Make:</label>
-    <input type="text" name="make"><br>
+  <label>Make:</label>
+  <input type="text" name="make"><br>
 
-    <label>Condition:</label>
-    <select name="condition">
-      <option value="New">New</option>
-      <option value="Used" selected>Used</option>
-      <option value="Refurbished">Refurbished</option>
-    </select><br>
+  <label>Condition:</label>
+  <select name="condition">
+    <option value="New">New</option>
+    <option value="Used" selected>Used</option>
+    <option value="Refurbished">Refurbished</option>
+  </select><br>
 
-    <label>Asset Tag:</label>
-    <input type="text" name="assetTag"><br>
+  <label>Asset Tag:</label>
+  <input type="text" name="assetTag"><br>
 
-    <label for="manufacturedYear">Manufactured Year</label>
-    <input type="number" id="manufacturedYear" name="manufacturedYear" min="2001" max="2030" required>
-    
-    <button type="submit">Add Asset</button>
-  </form>
+  <label for="manufacturedYear">Manufactured Year</label>
+  <input type="number" id="manufacturedYear" name="manufacturedYear" min="2001" max="2030" required>
+  
+  <button type="submit">Add Asset</button>
+</form>
 
-  <a href="/portal">Back to Portal</a>
+<a href="/portal">Back to Portal</a>
 
-</body>
-</html>
+<%- include('../partials/footer') %>

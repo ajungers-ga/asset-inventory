@@ -1,29 +1,16 @@
-<!-- 
-  Purpose: Display details of a specific asset based on its ID.
-  Note: Manufactured Date might be simplified to year-only in the future.
--->
+<%- include('../partials/header') %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title><%= asset.name %> Details</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+<h2><%= asset.name %> Details</h2>
 
-  <h1><%= asset.name %> Details</h1>
+<ul>
+  <li>Model: <%= asset.category %></li>
+  <li>Make: <%= asset.make %></li>
+  <li>Condition: <%= asset.condition %></li>
+  <li>Asset Tag: <%= asset.assetTag %></li>
+  <li>Manufactured Year: <%= asset.manufacturedDate?.getFullYear() %></li>
+</ul>
 
-  <ul>
-    <li>Model: <%= asset.category %></li>
-    <li>Make: <%= asset.make %></li>
-    <li>Condition: <%= asset.condition %></li>
-    <li>Asset Tag: <%= asset.assetTag %></li>
-    <li>Manufactured Year: <%= asset.manufacturedDate?.getFullYear() %></li>
-  </ul>
+<a href="/portal">Back to Portal</a> |
+<a href="/portal/<%= asset._id %>/edit">Edit</a>
 
-  <a href="/portal">Back to Portal</a> |
-  <a href="/portal/<%= asset._id %>/edit">Edit</a>
-
-</body>
-</html>
+<%- include('../partials/footer') %>
