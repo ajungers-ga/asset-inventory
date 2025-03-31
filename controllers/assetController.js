@@ -24,9 +24,9 @@ const create = async (req, res) => {
   try {
     req.body.userId = req.session.user._id;
 
-    // Convert year input to full Date object
-    if (req.body.manufacturedDate) {
-      req.body.manufacturedDate = new Date(`${req.body.manufacturedDate}-01-01`);
+    // Convert 4-digit year input to full Date object
+    if (req.body.manufacturedYear) {
+      req.body.manufacturedDate = new Date(`${req.body.manufacturedYear}-07-01`);
     }
 
     await Asset.create(req.body);
@@ -71,11 +71,21 @@ const update = async (req, res) => {
     }
 
     // Convert year input to full Date object
-    if (req.body.manufacturedDate) {
-      req.body.manufacturedDate = new Date(`${req.body.manufacturedDate}-01-01`);
+    if (req.body.manufacturedYear) {
+      req.body.manufacturedDate = new Date(`${req.body.manufacturedYear}-07-01`);
     }
 
-    await Asset.findByIdAndUpdate(req.params.id, req.body);
+    // Clean up req.body to only include fields the schema expects
+    const updatedData = {
+      name: req.body.name,
+      category: req.body.category,
+      make: req.body.make,
+      condition: req.body.condition,
+      assetTag: req.body.assetTag,
+      manufacturedDate: req.body.manufacturedDate,
+    };
+
+    await Asset.findByIdAndUpdate(req.params.id, updatedData);
     res.redirect('/portal');
   } catch (err) {
     console.log(err);
