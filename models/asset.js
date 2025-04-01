@@ -7,7 +7,7 @@ const assetSchema = new mongoose.Schema({
   make: String,            // Make Label (now added)
   condition: String,       // Condition (New, Used, Refurbished)
   assetTag: String,        // Asset Tag (unique ID or identifier)
-  manufacturedDate: Date,  // Manufactured Year stored as full Date (now added)
+  manufacturedDate: Date,  // Manufactured Year stored as full Date
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
