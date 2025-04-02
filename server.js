@@ -1,4 +1,4 @@
-// PURPOSE = server.js is the MAIN ENTRY POINT for my app. It handles:
+// PURPOSE = server.js is the MAIN ENTRY POINT for my app/project. It handles:
 //  (1) loading environment variables
 //  (2) importing core packages
 //  (3) creation of an instance
@@ -14,7 +14,7 @@
 // (1) BELOW = load variables from my .env file (mongodb_uri) into process.env
 require('dotenv').config();
 
-// (2) BELOW = importing all required packages; These packages (2.A through 2.B) are essential tools that make my app run
+// (2) BELOW = importing all required packages; These packages (2.A through 2.E) are essential tools that make my app run
 const express = require('express'); // 2.A - build the server, define the ROUTES
 const mongoose = require('mongoose'); // 2.B - talk to mongoDB, define the MODELS
 const session = require('express-session'); // 2.C - enable login sessions

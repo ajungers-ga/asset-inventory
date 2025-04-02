@@ -1,6 +1,14 @@
+<!-- 
+ PURPOSE = this page renders the signup form where a new user can create an account by...
+ ...submitting a username and password
+ The form sends a POST request to /auth/signup, which is handled in the authController.signup function
+  -->
+
+
+<!-- BELOW = include the site-wide HEADER layout for title, nav, opening body tags, etc -->
 <%- include('../partials/header') %>
 
-<!-- BELOW = signup form container with styles applied -->
+<!-- BELOW = signup form that submits new user credentials to /auth/signup -->
 <div class="auth-container">
   <h2>Sign Up</h2>
 
@@ -15,4 +23,5 @@
   </form>
 </div>
 
+<!-- BELOW = include the site-wide FOOTER layout (closes body and html tags) -->
 <%- include('../partials/footer') %>

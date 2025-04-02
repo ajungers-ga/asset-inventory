@@ -1,6 +1,16 @@
+<!-- 
+ PURPOSE = this page is used to render the login form so a returning user can log into the app
+ It includes the header.footer layout, uses my .auth-container styling, and submits the form to my 
+ /auth/login POST route 
+ -->
+
+
+<!-- BELOW = include the site-wude header layout for title, nav, opening body tags, etc -->
 <%- include('../partials/header') %>
 
-<!-- BELOW = login form container with styles applied -->
+<!-- BELOW = login form is wrapped in a styled container, 
+ uses proper input types for username/password and,
+ submits data to the POST route handled by the authController.login -->
 <div class="auth-container">
   <h2>Sign In</h2>
 
@@ -15,4 +25,5 @@
   </form>
 </div>
 
+<!-- BELOW = inject shared FOOTER layout (closes body and html tags) -->
 <%- include('../partials/footer') %>

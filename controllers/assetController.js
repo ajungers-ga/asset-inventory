@@ -1,4 +1,4 @@
-// this file defines my crud logic for interacting with the Asset model and linking it to ejs views
+// PURPOSE = this file defines my crud logic for interacting with the ASSET MODEL and linking it to ejs VIEWS 
 
 // BELOW = importing my asset model so this controller can access and manipulate data in mongoDB
 const Asset = require('../models/asset'); 
